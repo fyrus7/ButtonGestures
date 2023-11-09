@@ -1,7 +1,6 @@
 /*\
-|*| PushButton Gesture Library version 1.0
+|*| version 1.0
 |*| written 2011 - trent m. wyatt
-|*| edit 2023    - Fyrus
 |*|
 |*| v1.01  ++tmw, May 4, 2022
 |*| Fixed typos in example code
@@ -9,6 +8,8 @@
 |*| v2.0  ++tmw, May 5, 2022
 |*| Rewrote as C++ class
 |*| Packaged as Arduino Library
+|*|
+|*| edit 2023 - fyrus
 \*/
 
 // include guard
@@ -78,7 +79,7 @@ public:
     ButtonPressCallback callback(const uint8_t _state) const;
     void set_button_input();
     bool button_pressed();
-    uint8_t check_button_gesture();
+    uint8_t check_button_tact();
     uint8_t check_button();
 };
 
