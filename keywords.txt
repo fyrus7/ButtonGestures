@@ -1,20 +1,20 @@
 ########################################################
-# Syntax Coloring Map for Arduino ButtonGestures Library
+# Syntax Coloring Map for Arduino 1Tact Library
 ########################################################
-# https://github.com/ripred/ButtonGestures
+# https://github.com/fyrus7/1Tact
 ########################################################
 # Datatypes (KEYWORD1)
 ########################################################
-ButtonGestures	KEYWORD1
-ButtonPressCallback	KEYWORD1
+1Tact	KEYWORD1
+1Tact	KEYWORD1
 
 ########################################################
 # Methods and Functions (KEYWORD2)
 ########################################################
-ButtonGestures	KEYWORD2
+1Tact	KEYWORD2
 set_button_input	KEYWORD2
 button_pressed	KEYWORD2
-check_button_gesture	KEYWORD2
+check_button_tact	KEYWORD2
 check_button	KEYWORD2
 
 ########################################################
