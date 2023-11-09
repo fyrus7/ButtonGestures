@@ -1,21 +1,19 @@
 /*\
-|*| Example use of the ButtonGestures library
+|*| Example use of the One Tact library
 |*|
 |*| This example shows how to check the button for any gestures.
 |*| If a gesture has been entered it will be displayed to the
 |*| serial port.
 |*|
-|*| (c) 2022 trent m. wyatt
-|*|
 \*/
 
-#include <ButtonGestures.h>
+#include <OneTact.h>
 
 // NOTE: change/define the following pin(s) based on your project/connections
 #define   BUTTON_PIN    2
 
 //                     Arduino pin     Active HIGH/LOW         Input Mode
-ButtonGestures  button(BUTTON_PIN,           LOW,             INPUT_PULLUP);
+OneTact  button(BUTTON_PIN,           LOW,             INPUT_PULLUP);
 
 //
 // This function will report the passed button state along with a label
@@ -48,7 +46,7 @@ void setup(void) {
     uint32_t timer = millis() + 2000;
     while (!Serial && millis() < timer);
     Serial.flush();
-    Serial.println(F("\n\nArduino Core Library - ButtonGestures Library Test"));
+    Serial.println(F("\n\nArduino Core Library - OneTact Library Test"));
 }
 
 
