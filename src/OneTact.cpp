@@ -1,5 +1,5 @@
 /*\
-|*| ButtonGestures.cpp
+|*| ButtonGesture.cpp
 |*| Push Button Gesture Library
 |*|
 |*| version 1.0
