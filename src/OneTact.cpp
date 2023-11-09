@@ -102,7 +102,7 @@ bool OneTact::button_pressed() {
 |*| down the button to indicate a "long" press.  This is an enhanced button press check
 |*| (as opposed to button_pressed(...)) in that it attempts to detect gestures.
 \*/
-uint8_t ButtonGestures::check_button_gesture() {
+uint8_t OneTact::check_button_tact() {
     if (!button_pressed()) {
         return NOT_PRESSED;
     }
@@ -161,7 +161,7 @@ uint8_t ButtonGestures::check_button_gesture() {
 |*| Additionally this function prevents the spurious reporting of a *_BUTTON_SHORT state to be reported
 |*| after the user has let go of a button once one or more *_BUTTON_LONG states have been observed.
 \*/
-uint8_t ButtonGestures::check_button() {
+uint8_t OneTact::check_button() {
     uint8_t newstate = check_button_tact();
     if (newstate & LONG_PRESS) {
         if (state & LONG_PRESS) {
