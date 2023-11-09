@@ -1,5 +1,5 @@
 /*\
-|*| Example use of the ButtonGestures library
+|*| Example use of the One Tact library
 |*|
 |*| This example shows how to register different functions to be
 |*| called for different gestures.
@@ -7,16 +7,14 @@
 |*| If a function has been registered to a gesture then the function
 |*| will automatically be called for that gesture.
 |*|
-|*| (c) 2022 trent m. wyatt
-|*|
 \*/
 
-#include <ButtonGestures.h>
+#include <OneTact.h>
 
 // NOTE: change/define the following pin(s) based on your project/connections
 #define   BUTTON_PIN    2
 
-ButtonGestures  button(BUTTON_PIN, LOW, INPUT_PULLUP);
+OneTact  button(BUTTON_PIN, LOW, INPUT_PULLUP);
 
 //
 // These functions will be registered and called for the various gestures:
