@@ -1,17 +1,17 @@
 ########################################################
-# Syntax Coloring Map for Arduino 1Tact Library
+# Syntax Coloring Map for Arduino One Tact Library
 ########################################################
-# https://github.com/fyrus7/1Tact
+# https://github.com/fyrus7/OneTact
 ########################################################
 # Datatypes (KEYWORD1)
 ########################################################
-1Tact	KEYWORD1
-1Tact	KEYWORD1
+OneTact	KEYWORD1
+OneTact	KEYWORD1
 
 ########################################################
 # Methods and Functions (KEYWORD2)
 ########################################################
-1Tact	KEYWORD2
+OneTact	KEYWORD2
 set_button_input	KEYWORD2
 button_pressed	KEYWORD2
 check_button_tact	KEYWORD2
