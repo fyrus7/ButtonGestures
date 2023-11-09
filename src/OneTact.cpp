@@ -1,6 +1,6 @@
 /*\
-|*| ButtonGesture.cpp
-|*| Push Button Gesture Library
+|*| OneTact.cpp
+|*| One Tact Library
 |*|
 |*| version 1.0
 |*| written 2011 - trent m. wyatt
@@ -10,12 +10,13 @@
 |*| written 2022 - trent m. wyatt
 |*| Converted to class library
 |*|
+|*| edit 2023 - fyrus
 \*/
 
 #include <Arduino.h>
-#include "ButtonGestures.h"
+#include "OneTact.h"
 
-ButtonGestures::ButtonGestures(const int _pin) :
+OneTact::OneTact(const int _pin) :
     state(NONE),
     pin(_pin),
     active(HIGH),
@@ -24,7 +25,7 @@ ButtonGestures::ButtonGestures(const int _pin) :
     set_button_input();
 }
 
-ButtonGestures::ButtonGestures(const int _pin, const int _active) :
+OneTact::OneTact(const int _pin, const int _active) :
     state(NONE),
     pin(_pin),
     active(_active),
@@ -33,7 +34,7 @@ ButtonGestures::ButtonGestures(const int _pin, const int _active) :
     set_button_input();
 }
 
-ButtonGestures::ButtonGestures(const int _pin, const int _active, const int _input_mode) :
+OneTact::OneTact(const int _pin, const int _active, const int _input_mode) :
     state(NONE),
     pin(_pin),
     active(_active),
@@ -42,7 +43,7 @@ ButtonGestures::ButtonGestures(const int _pin, const int _active, const int _inp
     set_button_input();
 }
 
-bool ButtonGestures::set_callback(const uint8_t _state, const ButtonPressCallback _cb) {
+bool OneTact::set_callback(const uint8_t _state, const ButtonPressCallback _cb) {
     switch (_state) {
         default:        return false;
         case SHORT1:    short1 = _cb;   return true;
@@ -54,7 +55,7 @@ bool ButtonGestures::set_callback(const uint8_t _state, const ButtonPressCallbac
     }
 }
 
-ButtonPressCallback ButtonGestures::callback(const uint8_t _state) const {
+ButtonPressCallback OneTact::callback(const uint8_t _state) const {
     switch (_state) {
         default:        return nullptr;
         case SHORT1:    if (nullptr == short1) { return nullptr; } else { short1(pin, _state);  return short1; }
@@ -71,7 +72,7 @@ ButtonPressCallback ButtonGestures::callback(const uint8_t _state) const {
 |*| Note: The input pin will be configured to be an INPUT or an
 |*| INPUT_PULLUP depending on the value of input_mode.
 \*/
-void ButtonGestures::set_button_input() {
+void OneTact::set_button_input() {
   pinMode(pin, input_mode);     // set the button pin as an input with optional pull-up resistor
 }
 
@@ -84,7 +85,7 @@ void ButtonGestures::set_button_input() {
 |*|       (key debounce delay). This smooths out the dozens of button connections/disconnections detected at
 |*|       the speed of the CPU when the button first begins to make contact into a lower frequency responce.
 \*/
-bool ButtonGestures::button_pressed() {
+bool OneTact::button_pressed() {
     uint32_t presstime = millis() + KEYDBDELAY;
     while (active == digitalRead(pin)) {
         if (millis() >= presstime) {
@@ -161,7 +162,7 @@ uint8_t ButtonGestures::check_button_gesture() {
 |*| after the user has let go of a button once one or more *_BUTTON_LONG states have been observed.
 \*/
 uint8_t ButtonGestures::check_button() {
-    uint8_t newstate = check_button_gesture();
+    uint8_t newstate = check_button_tact();
     if (newstate & LONG_PRESS) {
         if (state & LONG_PRESS) {
             newstate = LONG_PRESS | (state & BUTTON_MASK);
