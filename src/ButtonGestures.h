@@ -1,6 +1,7 @@
 /*\
 |*| PushButton Gesture Library version 1.0
 |*| written 2011 - trent m. wyatt
+|*| edit 2023    - Fyrus
 |*|
 |*| v1.01  ++tmw, May 4, 2022
 |*| Fixed typos in example code
@@ -11,8 +12,8 @@
 \*/
 
 // include guard
-#ifndef BUTTONGESTURES_INCL
-#define BUTTONGESTURES_INCL
+#ifndef ONETACT_INCL
+#define ONETACT_INCL
 
 // ====================================================================================================
 //
@@ -52,7 +53,7 @@
 typedef void (*ButtonPressCallback)(const uint8_t /*_pin*/, const uint8_t /*_state*/);
 typedef ButtonPressCallback BpCb;
 
-struct ButtonGestures {
+struct OneTact {
 private:
     uint8_t     state;
     uint8_t     pin;
@@ -66,12 +67,12 @@ private:
     BpCb        short3 {nullptr};
     BpCb        long3  {nullptr};
 
-    ButtonGestures() = delete;
+    OneTact() = delete;
 
 public:
-    ButtonGestures(const int _pin);
-    ButtonGestures(const int _pin, int _active);
-    ButtonGestures(const int _pin, int _active, int _input_mode);
+    OneTact(const int _pin);
+    OneTact(const int _pin, int _active);
+    OneTact(const int _pin, int _active, int _input_mode);
 
     bool set_callback(const uint8_t _state, const ButtonPressCallback _cb);
     ButtonPressCallback callback(const uint8_t _state) const;
@@ -81,4 +82,4 @@ public:
     uint8_t check_button();
 };
 
-#endif // #ifndef BUTTONGESTURES_INCL
+#endif // #ifndef ONETACT_INCL
